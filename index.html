@@ -14,14 +14,13 @@
       --max-width:1100px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+    html,body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;}
+
     body{
       background: linear-gradient(180deg, #f7fbff 0%, var(--bg) 100%);
       color:#1f2937;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:28px;
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
     }
 
     .wrap{
@@ -35,6 +34,7 @@
       grid-template-columns: 320px 1fr;
       gap:0;
       min-height:420px;
+      margin:40px auto;
     }
 
     .left {
@@ -85,6 +85,7 @@
     .tag{background:rgba(47,123,224,0.06);color:var(--accent);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px}
     .footer-note{margin-top:20px;font-size:13px;color:var(--muted);}
 
+    /* Responsive */
     @media (max-width:860px){
       .wrap{grid-template-columns:1fr;min-height:auto}
       .left{flex-direction:row;align-items:center;padding:20px;gap:14px}
@@ -93,72 +94,256 @@
       .title h1{font-size:22px}
       .title h3{font-size:13px}
     }
+
+    /* Navigation Bar */
+    .navbar {
+      display: flex;
+      justify-content: center;   /* centers the items horizontally */
+      align-items: center;
+      background-color: #111;
+      padding: 14px 20px;
+      gap: 20px;
+    }
+
+
+    .navbar a {
+      color: white;
+      padding: 14px 20px;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .navbar a:hover {
+      background-color: #575757;
+      border-radius: 6px;
+    }
+
+    .section {
+      padding: 40px;
+      display:none;
+      max-width:var(--max-width);
+      margin:20px auto;
+    }
+
+    .active { display:block; }
   </style>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.getElementsByClassName("section");
+      for (let s of sections) s.style.display = "none";
+      document.getElementById(sectionId).style.display = "block";
+    }
+  </script>
 </head>
 
-<body>
+<body onload="showSection('home')">
 
-<main class="wrap" role="main" aria-label="profile">
-  <aside class="left" aria-label="profile card">
-    <div class="photo"><img src="photo.jpeg" alt="Ashwani Siwach"></div>
+<div class="navbar">
+  <a href="#" onclick="showSection('home')">Home</a>
+  <a href="#" onclick="showSection('conferences')">Conferences</a>
+  <a href="#" onclick="showSection('projects')">Projects</a>
+  <a href="#" onclick="showSection('contact')">Contact</a>
+</div>
 
-    <div>
-      <div class="name-short">Ashwani Siwach, M.Tech</div>
-      <div class="role-short">
-        <h3> Computational Genomics | Genomics × AI/ML | Machine Learning | Data Science | Bioinformatics </h3>
+<!-- HOME TAB -->
+<div id="home" class="section active">
+
+  <main class="wrap" role="main" aria-label="profile">
+
+    <aside class="left" aria-label="profile card">
+      <div class="photo"><img src="photo.jpeg" alt="Ashwani Siwach"></div>
+
+      <div>
+        <div class="name-short">Ashwani Siwach, M.Tech</div>
+        <div class="role-short">
+          <h3> Computational Genomics | Genomics × AI/ML | Machine Learning | Data Science | Bioinformatics </h3>
+        </div>
+
+        <div class="socials">
+          <a href="mailto:ashwanisiwach132003@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/ashwani-siwach-b721151b9/" target="_blank">LinkedIn</a>
+          <a href="https://github.com/Ashwani132003" target="_blank">GitHub</a>
+        </div>
+
+        <div class="edu">
+          <h4>Education</h4>
+          <ul style="padding-left:14px;margin:0;">
+            <li><strong>M.Tech</strong>, Communication & Signal Processing — <a href="https://www.iiitdmj.ac.in/" target="_blank">IIITDM Jabalpur</a> (2024–2026)</li>
+            <li><strong>B.Tech</strong>, Computer Science & Engineering — <a href="https://mdu.ac.in/" target="_blank">MDU Rohtak</a> (2020–2024)</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+
+    <section class="right">
+      <div class="title">
+        <h1>Ashwani Siwach, M.Tech</h1>
+        <h3>Machine Learning for Computational Genomics | Data-driven Biology | Data Science | Bioinformatics </h3>
       </div>
 
-      <div class="socials">
-        <a href="mailto:ashwanisiwach132003@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/ashwani-siwach-b721151b9/" target="_blank">LinkedIn</a>
-        <a href="https://github.com/Ashwani132003" target="_blank">GitHub</a>
-      </div>
+      <div class="bio">
+        <p>
+          I work in the field of <strong>computational genomics</strong>, exploring machine learning and AI approaches to analyze
+          biological sequences and large-scale genomic data. My interests include developing intelligent data-driven methods,
+          high-performance scientific computing, and applying modern algorithms to extract meaningful patterns from complex
+          biological datasets.
+        </p>
 
-      <div class="edu">
-        <h4>Education</h4>
-        <ul style="padding-left:14px;margin:0;">
-          <li><strong>M.Tech</strong>, Communication & Signal Processing — <a href="https://www.iiitdmj.ac.in/" target="_blank">IIITDM Jabalpur</a> (2024–2026)</li>
-          <li><strong>B.Tech</strong>, Computer Science & Engineering — <a href="https://mdu.ac.in/" target="_blank">MDU Rohtak</a> (2020–2024)</li>
-        </ul>
+        <p>
+          I am currently pursuing my <strong>M.Tech</strong> in Communication & Signal Processing at IIITDM Jabalpur, where I did a course on Genomic and Proteomic Signal Processing and my thesis involves
+          Machine learning and Bioinformatics for predicting disease-associated non-coding RNAs in chronic diseases and exploring AI-driven computational methods for genomics.
+        </p>
+        <p>
+          I stay updated with <strong>emerging trends in AI and Genomics </strong> and try to integrate the techniques that excite me into my research. I’m also continuously learning more biology to build a stronger foundation alongside my computational work.
+        </p>
+
+        <p>
+          I have strong programming experience with <strong>Python, Machine Learning, PyTorch, data processing pipelines, signal processing and Bioinformatics (as per requirements)</strong>,
+          and I enjoy building reproducible workflows and scalable research solutions in computational biology.
+        </p>
+
+        <div class="bullets">
+          <span class="tag">Computational Genomics</span>
+          <span class="tag">Machine Learning & Deep Learning</span>
+          <span class="tag">Bioinformatics</span>
+          <span class="tag">Data Science</span>
+          <span class="tag">Signal Processing</span>
+        </div>
+
+        <p class="footer-note">Open to research collaborations and academic opportunities.</p>
       </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- OTHER SECTIONS -->
+<div id="conferences" class="section">
+
+  <h2 style="margin-top:0;font-size:28px;color:#0b1220;">Conferences & Posters</h2>
+  <p style="font-size:15px;color:#334155;line-height:1.6;max-width:800px;">
+    Recently presented a poster showcasing my research work in computational genomics and machine learning–based feature engineering for genomic sequence analysis.
+  </p>
+  
+  <div style="margin-top:20px;padding:20px;border-radius:12px;background:white;box-shadow:0 6px 20px rgba(0,0,0,0.08);max-width:820px;">
+    <h3 style="margin:0 0 6px 0;color:#2f7be0;letter-spacing:-0.2px;font-size:20px;">
+      <a href="https://github.com/Ashwani132003/Inbix2025" target="_blank" style="color:#2f7be0;text-decoration:none;">
+        Feature Engineering for AI-Based Genomic Data Analysis
+      </a>
+    </h3>
+    
+    <p style="margin:6px 0 14px 0;color:#334155;font-size:15px;line-height:1.5;">
+      Poster Presentation — Inbix 2025
+    </p>
+
+    <ul style="color:#334155;font-size:14px;line-height:1.55;margin:0;padding-left:18px;">
+      <li>Focused on building efficient ML-driven representations for genomic sequence modeling</li>
+      <li>Covered various features from 3 categories that can be extracted from genomic data: Sequence, Structure & Expression based features</li>
+      <li>Found improvements in classification of disease-associated non-coding RNAs using these features</li>
+    </ul>
+
+    <div style="margin-top:18px;">
+      <img src="poster_202.jpg"
+      alt="Poster – Feature Engineering for AI-Based Genomic Data Analysis"
+      style="width:100%;max-height:420px;object-fit:cover;border-radius:10px;">
+ 
     </div>
-  </aside>
+  </div>
 
-  <section class="right">
-    <div class="title">
-      <h1>Ashwani Siwach, M.Tech</h1>
-      <h3>Machine Learning for Computational Genomics | Data-driven Biology | Data Science | Bioinformatics </h3>
-    </div>
+</div>
 
-    <div class="bio">
-      <p>
-        I work in the field of <strong>computational genomics</strong>, exploring machine learning and AI approaches to analyze
-        biological sequences and large-scale genomic data. My interests include developing intelligent data-driven methods,
-        high-performance scientific computing, and applying modern algorithms to extract meaningful patterns from complex
-        biological datasets.
-      </p>
+<!--  -->
+<!-- Projects -->
+<!--  -->
 
-      <p>
-        I am currently pursuing my <strong>M.Tech in Communication & Signal Processing</strong> at IIITDM Jabalpur, where my thesis involves
-        Machine learning and Bioinformatics for predicting disease-associated lncRNAs (+ other non-coding RNAs) in chronic diseases and exploring AI-driven computational methods for genomics.
-      </p>
-      <p>
-        I have strong programming experience with <strong>Python, Machine Learning, PyTorch, data processing pipelines, signal processing and Bioinformatics (as per requirements)</strong>,
-        and I enjoy building reproducible workflows and scalable research solutions in computational biology.
-      </p>
+<div id="projects" class="section">
+  <h1>Projects</h1>
 
-      <div class="bullets">
-        <span class="tag">Computational Genomics</span>
-        <span class="tag">Machine Learning & Deep Learning</span>
-        <span class="tag">Bioinformatics</span>
-        <span class="tag">Data Science</span>
-        <span class="tag">Signal Processing</span>
-      </div>
+  <h3>🔬 Computational Identification of non coding RNAs association with chronic diseases</h3>
+  <p>
+    Currently working on developing an AI/ML-based predictive framework to identify potential <strong> disease-associated non-coding RNAs (primarily lncRNAs) associated with chronic diseases, with current focus on Type-2 Diabetes (T2D) </strong>. The project covers the complete end-to-end workflow, including data collection through bioinformatics pipelines, dataset preprocessing, hypothesis formulation, feature extraction, modeling, and interpretation of results.
+  </p>
 
-      <p class="footer-note">Open to research collaborations and academic opportunities.</p>
-    </div>
-  </section>
-</main>
+  <p>
+    I am exploring innovative approaches at multiple stages of the pipeline—such as applying advanced feature engineering strategies using sequence, structure, and expression-based representations, and experimenting with hybrid Machine Learning and Deep Learning architectures to improve biomarker discovery and predictive stability. Additionally, I am working on identifying SNPs across multiple datasets to integrate genomic variation into the model. The outcome of this project aims to support precision medicine by facilitating patient-specific diagnosis and enhancing understanding of lncRNA involvement in chronic metabolic disorders.
+  </p>
+  <p><strong>Key Contributions & Skills Learned:</strong></p>
+  <ul>
+    <li>Bioinformatics workflow: sequence alignment and variant calling using HISAT2, SAMtools, BWA, GATK, VCFtools</li>
+    <li>VCF preprocessing and variant interpretation, metadata handling, etc. to identify the mutations with their positions, etc.</li>
+    <li>Feature engineering techniques for genomic data </li>
+    <li>Modeling using Random Forest, XGBoost, and Deep Learning etc.</li>
+    <li>Tackling heavy class imbalance, hyperparameter optimization, evaluation</li>
+    <li>Forming hypothesis and novel solution direction for biomarker prediction and more</li>
+  </ul>
+  
+  <p><strong>Tools & Libraries:</strong> Python, Scikit-learn, Pandas, NumPy, PyTorch,
+  Biopython, PC-PseDNC-General, Plotly, etc.</p>
+  
+  <hr />
+  
+  <h3>🧬 Mentoring Undergraduate Students in Computational Genomics & Machine Learning</h3>
+  <p>
+  Mentoring undergraduate students working on projects related to Parkinson’s Disease,
+  microexon discovery, and splice site identification etc. Providing guidance
+  through the full workflow from problem formulation to ML result interpretation.
+  Supported them in exploring GEO datasets, performing preprocessing and normalization,
+  and applying machine learning methods for biological insight discovery.
+  </p>
+  
+  <p><strong>Responsibilities & Skills Applied:</strong></p>
+  <ul>
+    <li>GEO dataset processing, sample grouping, metadata-based filtering</li>
+    <li>Methylation data handling using <code>methylprep</code> and downstream statistical analysis</li>
+    <li>EDA, visualization, ML model building with reproducible workflow design</li>
+    <li>End-to-end guidance: data → preprocessing → ML → final results & documentation</li>
+  </ul>
+  
+  <hr />
+  
+  <h3>🤖 Deep Learning for Genomic Sequence Modeling</h3>
+  <p>
+  Exploring BiLSTM, CNN, and Transformer-based architectures (including LLM-style models for genomics like DNABert, Nucleotide Transformer, BigRNA, etc.)
+  to learn biological sequence patterns beyond manually extracted features. Working on embedding strategies,
+  attention-based learning, and representation learning for improved biological relevance.
+  </p>
+  
+  <p><strong>Frameworks:</strong> PyTorch, HuggingFace Transformers.</p>
+  
+</div>
+
+<!--  -->
+<!-- Contact -->
+<!--  -->
+
+<div id="contact" class="section">
+  <h1>Contact</h1>
+<p><strong>Email:</strong> <a href="mailto:ashwanisiwach132003@gmail.com">ashwanisiwach132003@gmail.com</a></p>
+
+<p><strong>LinkedIn:</strong> 
+  <a href="https://www.linkedin.com/in/ashwani-siwach-b721151b9/" target="_blank">
+    linkedin.com/in/ashwani-siwach-b721151b9
+  </a>
+</p>
+
+<p><strong>GitHub:</strong> 
+  <a href="https://github.com/Ashwani132003" target="_blank">
+    github.com/ashwanisiwach
+  </a>
+</p>
+
+<p><strong>Twitter:</strong> 
+  <a href="https://x.com/AshwaniSiwach13" target="_blank">
+    x.com/AshwaniSiwach13
+  </a>
+</p>
+
+<p><strong>CV / Resume:</strong> 
+  <a href="CV_LINK" target="_blank">Download CV</a> # yet to be updated
+</p>
+
+<hr />
+</div>
 
 </body>
 </html>
