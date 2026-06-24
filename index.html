@@ -85,6 +85,64 @@
     .tag{background:rgba(47,123,224,0.06);color:var(--accent);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px}
     .footer-note{margin-top:20px;font-size:13px;color:var(--muted);}
 
+    /* Publications inline (home tab) */
+    .pub-inline {
+      margin-top: 28px;
+      border-top: 1px solid rgba(47,123,224,0.12);
+      padding-top: 22px;
+    }
+    .pub-inline h2 {
+      margin: 0 0 16px 0;
+      font-size: 18px;
+      color: #0b1220;
+      font-weight: 700;
+    }
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .pub-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: rgba(47,123,224,0.03);
+      border: 1px solid rgba(47,123,224,0.1);
+    }
+    .pub-badge {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 9px;
+      border-radius: 6px;
+      margin-top: 2px;
+    }
+    .badge-preprint { background: rgba(245,158,11,0.1); color: #b45309; }
+    .badge-review   { background: rgba(99,102,241,0.1); color: #4338ca; }
+    .badge-poster   { background: rgba(16,185,129,0.1); color: #047857; }
+
+    .pub-text {
+      font-size: 14px;
+      color: #334155;
+      line-height: 1.55;
+    }
+    .pub-text a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .pub-text a:hover { text-decoration: underline; }
+    .pub-venue {
+      display: inline-block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
     /* Responsive */
     @media (max-width:860px){
       .wrap{grid-template-columns:1fr;min-height:auto}
@@ -98,13 +156,12 @@
     /* Navigation Bar */
     .navbar {
       display: flex;
-      justify-content: center;   /* centers the items horizontally */
+      justify-content: center;
       align-items: center;
       background-color: #111;
       padding: 14px 20px;
       gap: 20px;
     }
-
 
     .navbar a {
       color: white;
@@ -125,6 +182,46 @@
     }
 
     .active { display:block; }
+
+    /* Publications full tab */
+    .pub-card {
+      margin-bottom: 20px;
+      padding: 22px 24px;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      border-left: 4px solid var(--accent);
+      max-width: 860px;
+    }
+    .pub-card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0b1220;
+      margin: 0 0 6px 0;
+      line-height: 1.4;
+    }
+    .pub-card-title a { color: var(--accent); text-decoration: none; }
+    .pub-card-title a:hover { text-decoration: underline; }
+    .pub-card-authors {
+      font-size: 14px;
+      color: #334155;
+      margin: 0 0 6px 0;
+    }
+    .pub-card-venue {
+      font-size: 13px;
+      color: var(--muted);
+      font-style: italic;
+      margin: 0 0 10px 0;
+    }
+    .pub-card-badge {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 6px;
+      display: inline-block;
+    }
   </style>
 
   <script>
@@ -140,7 +237,7 @@
 
 <div class="navbar">
   <a href="#" onclick="showSection('home')">Home</a>
-  <a href="#" onclick="showSection('conferences')">Conferences</a>
+  <a href="#" onclick="showSection('publications')">Publications</a>
   <a href="#" onclick="showSection('projects')">Projects</a>
   <a href="#" onclick="showSection('contact')">Contact</a>
 </div>
@@ -194,7 +291,7 @@
           Machine learning and Bioinformatics for predicting disease-associated non-coding RNAs in chronic diseases and exploring AI-driven computational methods for genomics.
         </p>
         <p>
-          I stay updated with <strong>emerging trends in AI and Genomics </strong> and try to integrate the techniques that excite me into my research. I’m also continuously learning more biology to build a stronger foundation alongside my computational work.
+          I stay updated with <strong>emerging trends in AI and Genomics </strong> and try to integrate the techniques that excite me into my research. I'm also continuously learning more biology to build a stronger foundation alongside my computational work.
         </p>
 
         <p>
@@ -211,51 +308,100 @@
         </div>
 
         <p class="footer-note">Open to research collaborations and academic opportunities.</p>
+
+        <!-- Publications inline -->
+        <div class="pub-inline">
+          <h2>Publications</h2>
+          <ul class="pub-list">
+            <li>
+              <span class="pub-badge badge-preprint">Preprint</span>
+              <div class="pub-text">
+                Ashwani Siwach, Sanjeev Narayan Sharma, and Sunil Datt Sharma.
+                "<a href="https://arxiv.org/abs/2605.20747" target="_blank">Multi-Modal Machine Learning for Population- and Subject-Specific lncRNA-Type 2 Diabetes Association Analysis</a>."
+                <span class="pub-venue">arXiv:2605.20747, 2026.</span>
+              </div>
+            </li>
+            <li>
+              <span class="pub-badge badge-review">Under Review</span>
+              <div class="pub-text">
+                Ashwani Siwach, Sanjeev Narayan Sharma, and Sunil Datt Sharma.
+                Journal manuscript based on M.Tech thesis research.
+                <span class="pub-venue">An IEEE Journal (under review).</span>
+
+              </div>
+            </li>
+            <li>
+              <span class="pub-badge badge-poster">Poster</span>
+              <div class="pub-text">
+                Ashwani Siwach, Sanjeev Narayan Sharma, and Sunil Datt Sharma.
+                "<a href="https://github.com/Ashwani132003/Inbix2025" target="_blank">Feature Engineering for AI-Based Genomic Data Analysis</a>."
+                <span class="pub-venue">International Conference Inbix2025, ICMR-NIRTH, Jabalpur (M.P.), Nov. 2025.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
       </div>
     </section>
 
   </main>
 </div>
 
-<!-- OTHER SECTIONS -->
-<div id="conferences" class="section">
+<!-- PUBLICATIONS TAB -->
+<div id="publications" class="section">
 
-  <h2 style="margin-top:0;font-size:28px;color:#0b1220;">Conferences & Posters</h2>
-  <p style="font-size:15px;color:#334155;line-height:1.6;max-width:800px;">
-    Recently presented a poster showcasing my research work in computational genomics and machine learning–based feature engineering for genomic sequence analysis.
+  <h2 style="margin-top:0;font-size:28px;color:#0b1220;">Publications</h2>
+  <p style="font-size:15px;color:#334155;line-height:1.6;max-width:800px;margin-bottom:28px;">
+    Research outputs in computational genomics, machine learning for biology, and non-coding RNA analysis.
   </p>
-  
-  <div style="margin-top:20px;padding:20px;border-radius:12px;background:white;box-shadow:0 6px 20px rgba(0,0,0,0.08);max-width:820px;">
-    <h3 style="margin:0 0 6px 0;color:#2f7be0;letter-spacing:-0.2px;font-size:20px;">
-      <a href="https://github.com/Ashwani132003/Inbix2025" target="_blank" style="color:#2f7be0;text-decoration:none;">
+
+  <!-- Preprint -->
+  <div class="pub-card">
+    <p class="pub-card-title">
+      <a href="https://arxiv.org/abs/2605.20747" target="_blank">
+        Multi-Modal Machine Learning for Population- and Subject-Specific lncRNA-Type 2 Diabetes Association Analysis
+      </a>
+    </p>
+    <p class="pub-card-authors">Ashwani Siwach, Sanjeev Narayan Sharma, and Sunil Datt Sharma</p>
+    <p class="pub-card-venue">arXiv preprint, arXiv:2605.20747, 2026</p>
+    <span class="pub-card-badge badge-preprint">Preprint</span>
+  </div>
+
+  <!-- Under review -->
+  <div class="pub-card">
+    <p class="pub-card-title">
+      Multi-Modal Machine Learning for lncRNA-Disease Association Analysis (journal version)
+    </p>
+    <p class="pub-card-authors">Ashwani Siwach, Sanjeev Narayan Sharma, and Sunil Datt Sharma</p>
+
+              <p class="pub-card-venue">An IEEE Journal (under review).</p>
+
+    <span class="pub-card-badge badge-review">Under Review</span>
+  </div>
+
+  <!-- Poster -->
+  <div class="pub-card" style="border-left-color:#10b981;">
+    <p class="pub-card-title">
+      <a href="https://github.com/Ashwani132003/Inbix2025" target="_blank">
         Feature Engineering for AI-Based Genomic Data Analysis
       </a>
-    </h3>
-    
-    <p style="margin:6px 0 14px 0;color:#334155;font-size:15px;line-height:1.5;">
-      Poster Presentation — Inbix 2025
     </p>
-
-    <ul style="color:#334155;font-size:14px;line-height:1.55;margin:0;padding-left:18px;">
-      <li>Focused on building efficient ML-driven representations for genomic sequence modeling</li>
-      <li>Covered various features from 3 categories that can be extracted from genomic data: Sequence, Structure & Expression based features</li>
-      <li>Found improvements in classification of disease-associated non-coding RNAs using these features</li>
-    </ul>
+    <p class="pub-card-authors">Ashwani Siwach, Sanjeev Narayan Sharma, and Sunil Datt Sharma</p>
+    <p class="pub-card-venue">
+      Poster Presentation — International Conference Inbix2025, ICMR-NIRTH (National Institute for Research in Tribal Health), Jabalpur (M.P.), Nov. 2025
+    </p>
+    <span class="pub-card-badge badge-poster">Poster</span>
 
     <div style="margin-top:18px;">
       <img src="poster_202.jpg"
-      alt="Poster – Feature Engineering for AI-Based Genomic Data Analysis"
-      style="width:100%;max-height:420px;object-fit:cover;border-radius:10px;">
- 
+        alt="Poster – Feature Engineering for AI-Based Genomic Data Analysis"
+        style="width:100%;max-height:420px;object-fit:cover;border-radius:10px;">
     </div>
   </div>
 
 </div>
 
-<!--  -->
-<!-- Projects -->
-<!--  -->
-
+<!-- PROJECTS TAB -->
 <div id="projects" class="section">
   <h1>Projects</h1>
 
@@ -284,7 +430,7 @@
   
   <h3>🧬 Mentoring Undergraduate Students in Computational Genomics & Machine Learning</h3>
   <p>
-  Mentoring undergraduate students working on projects related to Parkinson’s Disease,
+  Mentoring undergraduate students working on projects related to Parkinson's Disease,
   microexon discovery, and splice site identification etc. Providing guidance
   through the full workflow from problem formulation to ML result interpretation.
   Supported them in exploring GEO datasets, performing preprocessing and normalization,
@@ -312,10 +458,7 @@
   
 </div>
 
-<!--  -->
-<!-- Contact -->
-<!--  -->
-
+<!-- CONTACT TAB -->
 <div id="contact" class="section">
   <h1>Contact</h1>
 <p><strong>Email:</strong> <a href="mailto:ashwanisiwach132003@gmail.com">ashwanisiwach132003@gmail.com</a></p>
